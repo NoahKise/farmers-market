@@ -24,7 +24,7 @@ class StateControl extends React.Component {
                 {selectedDate && (
                     <React.Fragment>
                         <MarketSchedule selectedDate={selectedDate} />
-                        <ProduceAvailable selectedMonth={selectedDate.getMonth()} />
+                        <ProduceAvailable selectedDate={selectedDate} />
                     </React.Fragment>
                 )}
             </div>

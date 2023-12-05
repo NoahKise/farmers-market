@@ -274,12 +274,18 @@ const monthNames = [
    "July", "August", "September", "October", "November", "December"
 ];
 
-function ProduceAvailable({ selectedMonth }) {
+function ProduceAvailable({ selectedDate }) {
+   const month = new Date(selectedDate);
+   month.setDate(selectedDate.getDate() + 1);
+   const formattedMonth = month.toLocaleDateString('en-US', { month: 'long' });
    const filteredProduce = availableProduce.find(
-      (month) => month.month.toLowerCase() === monthNames[selectedMonth].toLowerCase()
+      (month) => month.month === formattedMonth
    );
+   console.log(month.getDay());
 
-   return (
+   if (month.getDay() === 5) {
+      return null;
+   } else return (
       <div>
          <h2>Available Produce</h2>
          {filteredProduce && (

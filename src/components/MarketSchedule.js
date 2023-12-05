@@ -43,7 +43,11 @@ function MarketSchedule({ selectedDate }) {
     const dayOfWeek = new Date(selectedDate);
     dayOfWeek.setDate(selectedDate.getDate() + 1);
     const formattedDayOfWeek = dayOfWeek.toLocaleDateString('en-US', { weekday: 'long' });
-    return (
+    if (formattedDayOfWeek === "Friday") {
+        return (
+            <h2>No Market Today</h2>
+        )
+    } else return (
         <div>
             <h2>Market Schedule</h2>
             {marketSchedule.map((market) =>
