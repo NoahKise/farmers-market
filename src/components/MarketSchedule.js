@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const marketSchedule = [
     {
@@ -63,5 +64,9 @@ function MarketSchedule({ selectedDate }) {
         </div>
     );
 }
+
+MarketSchedule.propTypes = {
+    selectedDate: PropTypes.instanceOf(Date).isRequired,
+};
 
 export default MarketSchedule;

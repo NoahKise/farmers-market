@@ -1,38 +1,83 @@
-.App {
+body {
   text-align: center;
+  background: rgb(0,212,255);
+  background: radial-gradient(circle, rgba(0,212,255,1) 37%, rgba(255,252,0,1) 100%);
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#list {
+  display: block;
+  width: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+#date-input {
+  padding: 0.6em 2em;
+  border: 3px solid black;
+  outline: none;
+  color: rgb(0, 0, 0);
+  background: #ffffff;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+label {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 36px;
+  text-decoration: underline;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+#date-input:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button2 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button2 {
+  0% {
+    background-position: 0 0;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  50% {
+      background-position: 400% 0;
+    }
+  100% {
+    background-position: 0 0;
   }
 }

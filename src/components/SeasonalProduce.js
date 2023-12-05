@@ -1,4 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+const styling = {
+   border: "3px solid black",
+   width: "300px",
+   marginLeft: "auto",
+   marginRight: "auto",
+   background: "linear-gradient(162deg, rgba(255,129,129,1) 37%, rgba(255,152,0,1) 64%)"
+}
 
 const availableProduce = [
    {
@@ -280,12 +289,12 @@ function ProduceAvailable({ selectedDate }) {
    if (month.getDay() === 5) {
       return null;
    } else return (
-      <div>
+      <div style={styling}>
          <h2>Available Produce</h2>
          {filteredProduce && (
             <div>
                <h3>{filteredProduce.month}</h3>
-               <ul>
+               <ul id="list">
                   {filteredProduce.selection.map((item, index) => (
                      <li key={index}>{item}</li>
                   ))}
@@ -295,5 +304,9 @@ function ProduceAvailable({ selectedDate }) {
       </div>
    );
 }
+
+ProduceAvailable.propTypes = {
+   selectedDate: PropTypes.instanceOf(Date).isRequired,
+};
 
 export default ProduceAvailable;
