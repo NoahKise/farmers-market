@@ -269,11 +269,6 @@ const availableProduce = [
    }
 ];
 
-const monthNames = [
-   "January", "February", "March", "April", "May", "June",
-   "July", "August", "September", "October", "November", "December"
-];
-
 function ProduceAvailable({ selectedDate }) {
    const month = new Date(selectedDate);
    month.setDate(selectedDate.getDate() + 1);
@@ -281,7 +276,6 @@ function ProduceAvailable({ selectedDate }) {
    const filteredProduce = availableProduce.find(
       (month) => month.month === formattedMonth
    );
-   console.log(month.getDay());
 
    if (month.getDay() === 5) {
       return null;
